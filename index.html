@@ -54,13 +54,15 @@
 }
 
 /* Dấu > * nghĩa là lôi cổ tất cả con cái bên trong ra ép */
+/* Đoạn code chuẩn: Ép to, ép dính góc, và CẤM lật ngược */
 #camera-preview > * {
-    width: 300px !important;  /* ...thì bắt ruột to bấy nhiêu! */
+    width: 300px !important;
     height: 225px !important;
     position: absolute !important;
     top: 0 !important;
     left: 0 !important;
     object-fit: cover !important;
+    transform: scaleX(1) !important; /* Dòng này giúp cam không bị ngược */
 }
 
 
