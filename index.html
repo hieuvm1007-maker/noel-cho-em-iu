@@ -59,16 +59,13 @@
 /* 2. Ép phóng to video gấp 3 lần bất chấp mọi định dạng cũ */
 #camera-preview video, 
 #camera-preview canvas {
-    width: auto !important;
-    height: auto !important;
-    
+    width: 100% !important;
+    height: 100% !important;
     position: absolute !important;
-    top: 50% !important;
-    left: 50% !important;
-    
-    /* scale(3): Phóng to gấp 3 lần (nếu vẫn bé thì sửa thành 4) */
-    /* scaleX(1): CHỐNG LẬT NGƯỢC */
-    transform: translate(-50%, -50%) scale(3) scaleX(1) !important;
+    top: 0 !important;
+    left: 0 !important;
+    object-fit: cover !important;
+    transform: scaleX(1) !important;
 }
         /* Vandiep */
         #copyright {
@@ -509,7 +506,13 @@
             hands.setOptions({ maxNumHands: 2, modelComplexity: 1, minDetectionConfidence: 0.5, minTrackingConfidence: 0.5 });
 
             hands.onResults(results => {
-                ctx.clearRect(0,0,100,75); ctx.drawImage(results.image, 0, 0, 100, 75);
+                // 👇 Cài đặt độ phân giải nét căng 300x225
+            canvas.width = 300;
+            canvas.height = 225;
+
+            // Vẽ full khung
+            ctx.clearRect(0, 0, 300, 225);
+            ctx.drawImage(results.image, 0, 0, 300, 225);
 
                 // --- Hand Logic  ---
                 if (results.multiHandLandmarks.length === 2) {
