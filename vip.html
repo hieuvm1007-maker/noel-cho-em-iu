@@ -233,9 +233,9 @@
             
             // Unreal Bloom params: resolution, strength, radius, threshold
             const bloomPass = new THREE.UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 1.5, 0.4, 0.85);
-            bloomPass.strength = 1.8; // Độ rực rỡ
+            bloomPass.strength = 1.2; // Độ rực rỡ
             bloomPass.radius = 0.5;
-            bloomPass.threshold = 0; // Phát sáng tất cả những gì có màu
+            bloomPass.threshold = 0.3; // Phát sáng tất cả những gì có màu
 
             composer = new THREE.EffectComposer(renderer);
             composer.addPass(renderScene);
