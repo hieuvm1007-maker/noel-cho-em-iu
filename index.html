@@ -40,28 +40,34 @@
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
 
         /* Camera Preview Vandiep */
-    #camera-preview {
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        width: 300px;
-        height: 225px;
-        border: 2px solid rgba(255,0,0,0.5);
-        transform: scaleX(-1);
-        opacity: 1;
-        border-radius: 8px;
-        overflow: hidden; /* Cắt bỏ phần thừa nếu video bị tràn */
-        z-index: 9999;
-    }
+    /* Camera Preview Vandiep - Phiên bản Flexbox bất bại */
+#camera-preview {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 300px;
+    height: 225px;
+    z-index: 9999;
 
-    /* Dấu * này là lệnh bắt buộc mọi thứ bên trong phải nghe lời */
-#camera-preview * {
+    /* 👇 CÔNG NGHỆ MỚI: Tự động ép nội dung vào giữa */
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+
+    border: 2px solid rgba(255,0,0,0.5);
+    border-radius: 8px;
+    overflow: hidden;
+    /* ⚠️ Lưu ý: Mình đã bỏ dòng transform ở đây đi để tránh lỗi */
+}
+
+#camera-preview video, #camera-preview canvas {
+    /* Ép video dãn ra full khung */
     width: 100% !important;
     height: 100% !important;
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
     object-fit: cover !important;
+    
+    /* 👇 Chuyển lệnh lật gương vào đây thì mới chuẩn */
+    transform: scaleX(-1) !important;
 }
     
         
