@@ -40,12 +40,12 @@
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
 
         /* Camera Preview Vandiep */
-/* Camera Preview - Phiên bản ép cứng số đo */
+/* FIX LỖI CUỐI CÙNG: ÉP VIDEO TO BẰNG KHUNG */
 #camera-preview {
     position: absolute;
     top: 15px;
     right: 15px;
-    width: 300px;  /* Khung to bao nhiêu... */
+    width: 300px;
     height: 225px;
     z-index: 9999;
     border: 2px solid rgba(255,0,0,0.5);
@@ -53,21 +53,23 @@
     overflow: hidden;
 }
 
-/* Dấu > * nghĩa là lôi cổ tất cả con cái bên trong ra ép */
-/* Đoạn code chuẩn: Ép to, ép dính góc, và CẤM lật ngược */
-#camera-preview > * {
-    width: 300px !important;
-    height: 225px !important;
+/* Lưu ý: Không dùng dấu > nữa để tìm video ở bất cứ đâu */
+#camera-preview video, 
+#camera-preview canvas {
+    width: 300px !important;     /* Ép chiều rộng */
+    height: 225px !important;    /* Ép chiều cao */
+    min-width: 100% !important;  /* Dự phòng */
+    min-height: 100% !important; /* Dự phòng */
+    
     position: absolute !important;
     top: 0 !important;
     left: 0 !important;
     object-fit: cover !important;
-    transform: scaleX(1) !important; /* Dòng này giúp cam không bị ngược */
+    
+    /* Chống lật ngược */
+    transform: scaleX(1) !important;
 }
 
-
-    
-        
         /* Vandiep */
         #copyright {
             position: absolute;
