@@ -42,30 +42,25 @@
         /* Camera Preview Vandiep */
 /* PHƯƠNG ÁN CUỐI: DÙNG "KÍNH LÚP" PHÓNG TO CƯỠNG BỨC */
 
-/* 1. Đặt lại khung cho chuẩn */
+/* Code Camera Chuẩn - Tác động trực tiếp vào Canvas */
 #camera-preview {
+    /* 1. Vị trí & Kích thước */
     position: absolute;
     top: 15px;
     right: 15px;
     width: 300px;
     height: 225px;
     z-index: 9999;
-    border: 2px solid red;
+    
+    /* 2. Giao diện */
+    border: 2px solid rgba(255, 0, 0, 0.5);
     border-radius: 8px;
-    overflow: hidden; 
     background: #000;
-}
-
-/* 2. Ép phóng to video gấp 3 lần bất chấp mọi định dạng cũ */
-#camera-preview video, 
-#camera-preview canvas {
-    width: 100% !important;
-    height: 100% !important;
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    object-fit: cover !important;
-    transform: scaleX(-1) !important;
+    
+    /* 3. QUAN TRỌNG: Lật gương (Flip) */
+    /* scaleX(-1): Soi gương (Giơ tay phải thấy bên phải) */
+    /* scaleX(1): Camera thường (Giơ tay phải thấy bên trái) */
+    transform: scaleX(-1); 
 }
         /* Vandiep */
         #copyright {
