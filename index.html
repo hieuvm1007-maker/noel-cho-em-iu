@@ -40,7 +40,9 @@
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
 
         /* Camera Preview Vandiep */
-/* FIX LỖI CUỐI CÙNG: ÉP VIDEO TO BẰNG KHUNG */
+/* PHƯƠNG ÁN CUỐI: DÙNG "KÍNH LÚP" PHÓNG TO CƯỠNG BỨC */
+
+/* 1. Đặt lại khung cho chuẩn */
 #camera-preview {
     position: absolute;
     top: 15px;
@@ -48,28 +50,26 @@
     width: 300px;
     height: 225px;
     z-index: 9999;
-    border: 2px solid rgba(255,0,0,0.5);
+    border: 2px solid red;
     border-radius: 8px;
-    overflow: hidden;
+    overflow: hidden; 
+    background: #000;
 }
 
-/* Lưu ý: Không dùng dấu > nữa để tìm video ở bất cứ đâu */
+/* 2. Ép phóng to video gấp 3 lần bất chấp mọi định dạng cũ */
 #camera-preview video, 
 #camera-preview canvas {
-    width: 300px !important;     /* Ép chiều rộng */
-    height: 225px !important;    /* Ép chiều cao */
-    min-width: 100% !important;  /* Dự phòng */
-    min-height: 100% !important; /* Dự phòng */
+    width: auto !important;
+    height: auto !important;
     
     position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    object-fit: cover !important;
+    top: 50% !important;
+    left: 50% !important;
     
-    /* Chống lật ngược */
-    transform: scaleX(1) !important;
+    /* scale(3): Phóng to gấp 3 lần (nếu vẫn bé thì sửa thành 4) */
+    /* scaleX(1): CHỐNG LẬT NGƯỢC */
+    transform: translate(-50%, -50%) scale(3) scaleX(1) !important;
 }
-
         /* Vandiep */
         #copyright {
             position: absolute;
