@@ -54,11 +54,14 @@
         z-index: 9999;
     }
 
-    /* Đoạn này nằm RỜI ra ngoài, không được nằm trong cái ngoặc ở trên */
     #camera-preview video, #camera-preview canvas {
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover !important;
+    position: absolute !important; /* Ép vị trí */
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;        /* Ép chiều rộng */
+    height: 100% !important;       /* Ép chiều cao */
+    object-fit: cover !important;  /* Cắt bỏ phần thừa cho vừa khung */
+}
     }
         
         /* Vandiep */
