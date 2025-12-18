@@ -54,13 +54,14 @@
         z-index: 9999;
     }
 
-    #camera-preview video, #camera-preview canvas {
-    position: absolute !important; /* Ép vị trí */
+    /* Dấu * này là lệnh bắt buộc mọi thứ bên trong phải nghe lời */
+#camera-preview * {
+    width: 100% !important;
+    height: 100% !important;
+    position: absolute !important;
     top: 0 !important;
     left: 0 !important;
-    width: 100% !important;        /* Ép chiều rộng */
-    height: 100% !important;       /* Ép chiều cao */
-    object-fit: cover !important;  /* Cắt bỏ phần thừa cho vừa khung */
+    object-fit: cover !important;
 }
     }
         
